@@ -1,4 +1,3 @@
-/* eslint-disable import/no-extraneous-dependencies */
 // updateUserInfo, getUserInfo
 // залогиниться, зарегистрироваться
 
@@ -72,7 +71,7 @@ const getUserInfo = (req, res, next) => {
 const updateUserInfo = (req, res, next) => {
   User.findByIdAndUpdate(
     req.user._id,
-    { name: req.body.name, about: req.body.about },
+    { name: req.body.name },
     {
       new: true,
       runValidators: true,

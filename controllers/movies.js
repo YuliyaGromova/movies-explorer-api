@@ -3,8 +3,8 @@ const Movie = require('../models/movie');
 const { NotFoundError } = require('../errors/not-found-err');
 const { ForbiddenError } = require('../errors/forbidden-err');
 
-const getMovies = async (_, res, next) => {
-  Movie.find({})
+const getMovies = async (req, res, next) => {
+  Movie.find({ owner: req.user._id })
     .then((movies) => res.send(movies))
     .catch((err) => {
       next(err);

@@ -14,7 +14,7 @@ router.use('/movies', auth, movieRoutes);
 
 router.use('/', authRoutes);
 
-router.all('/*', (req, res, next) => {
+router.all('/*', auth, (req, res, next) => {
   next(new NotFoundError('Маршрут не найден'));
 });
 
