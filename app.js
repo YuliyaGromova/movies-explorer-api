@@ -12,6 +12,7 @@ const { requestLogger, errorLogger } = require('./middlewares/logger');
 
 const { PORT = 3000, DB_URL } = process.env;
 const app = express();
+
 app.use(cors({ origin: ['http://localhost:3001', 'https://gromova.students.nomoreparties.sbs'], credentials: true, maxAge: 3600 }));
 
 mongoose

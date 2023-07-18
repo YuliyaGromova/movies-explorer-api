@@ -71,7 +71,7 @@ const getUserInfo = (req, res, next) => {
 const updateUserInfo = (req, res, next) => {
   User.findByIdAndUpdate(
     req.user._id,
-    { name: req.body.name },
+    { name: req.body.name, email: req.body.email },
     {
       new: true,
       runValidators: true,
@@ -80,7 +80,9 @@ const updateUserInfo = (req, res, next) => {
     .orFail(() => new NotFoundError())
     .then((user) => res.send(user))
     .catch((err) => {
-      if (err.name === 'ValidationError' || err.name === 'CastError') { // 400
+      if (err.code === 11000) { // 409
+        next(new UniqueError());
+      } else if (err.name === 'ValidationError' || err.name === 'CastError') { // 400
         next(new ValidationError());
       } else {
         next(err);
