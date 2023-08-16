@@ -71,23 +71,23 @@ const movieSchema = new mongoose.Schema({
   nameRU: {
     type: String,
     required: true,
-    validate: { // опишем свойство validate
-      validator(v) {
-        return validator.isAlphanumeric(v, ['ru-RU'], { ignore: ' -!.,:;?()[]"+@$' });
-      },
-      message: 'Название фильма должно быть на русском языке',
-    },
+    // validate: { // опишем свойство validate
+    //   validator(v) {
+    //     return validator.isAlphanumeric(v, ['ru-RU'], { ignore: ' -!.,:;?()[]"+@$' });
+    //   },
+    //   message: 'Название фильма должно быть на русском языке',
+    // },
   },
   // nameEN — название фильма на английском языке. Обязательное поле-строка.
   nameEN: {
     type: String,
     required: true,
-    validate: {
-      validator(v) {
-        return validator.isAlphanumeric(v, ['en-US'], { ignore: ' -!.,:;?()[]"+@$' });
-      },
-      message: 'Название фильма должно быть на английском языке',
-    },
+    // validate: {
+    //   validator(v) {
+    //     return validator.isAlphanumeric(v, ['en-US'], { ignore: ' -!.,:;?()[]"+@$' });
+    //   },
+    //   message: 'Название фильма должно быть на английском языке',
+    // },
   },
 });
 
