@@ -23,3 +23,6 @@
  - npm i - установить зависимости
  - npm run dev - запустить приложение в режиме разработчика c hot-reload
  - npm run start - запустить dev-режим сборки приложения
+
+## фронтэнд часть проекта можно скачать по ссылке:
+https://github.com/YuliyaGromova/movies-explorer-frontend
